@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "m7"
+package-mode = false
+version = "0.1.0"
+description = ""
+authors = ["Moses-93 <moieseenko2001@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.12.3"
+sqlalchemy = "^2.0.36"
+psycopg2-binary = "^2.9.10"
+alembic = "^1.14.0"
+faker = "^33.1.0"
+python-dotenv = "^1.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
