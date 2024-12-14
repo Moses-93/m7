@@ -1,7 +1,6 @@
 from sqlalchemy import select, func
 from sqlalchemy.orm import Session
 from db.models import Group, Student, Subject, Grade
-from db.config import session
 
 
 def format_results(results):
@@ -12,13 +11,11 @@ def format_results(results):
         return "Немає даних для відображення."
 
     if isinstance(results, list):
-        # Форматуємо список результатів
         formatted = "\n".join(
             f"{', '.join(map(str, row))}"
             for row in results
         )
     else:
-        # Форматуємо окреме значення
         formatted = str(results)
 
     return formatted
@@ -137,16 +134,3 @@ def select_10(session: Session, student_id: int, teacher_id: int):
     )
     result = session.execute(stmt).all()
     return format_results(result)
-
-
-with session as session:
-    print(select_1(session))
-    print(select_2(session, 1))
-    print(select_3(session, 1))
-    print(select_4(session))
-    print(select_5(session, 1))
-    print(select_6(session, 1))
-    print(select_7(session, 1, 1))
-    print(select_8(session, 1))
-    print(select_9(session, 1))
-    print(select_10(session, 1, 1))
